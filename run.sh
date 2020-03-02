@@ -16,7 +16,7 @@ do
 done
 
 #Create a network named "hadoopNetwork"
-docker network rm hadoopNetwork && docker network create -d bridge   --subnet 172.25.0.0/16  hadoopNetwork
+docker network create -d bridge   --subnet 172.25.0.0/16  hadoopNetwork
 
 #Create base hadoop image named "base-hadoop:1.0"
 docker build -t base-hadoop:1.0 .
