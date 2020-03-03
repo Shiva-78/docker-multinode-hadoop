@@ -34,4 +34,8 @@ done
 
 #run hadoop commands
 docker exec -ti master bash  -c "hadoop namenode -format && /usr/local/hadoop/sbin/start-dfs.sh && /usr/local/hadoop/sbin/start-yarn.sh"
+for (( c=1; c<=$slaveCount; c++ ))
+do
+docker exec -it slave$c bash -c "/usr/local/hadoop/bin/hadoop datanode"
+done
 docker exec -ti master bash
